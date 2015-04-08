@@ -1,41 +1,19 @@
+
 body {
-	background-image: url("../img/bg.png");
-	background-repeat: repeat;
+padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
 }
-
-.fb{
-	background-color:white;
-	 border:1px solid #e2e2e2;
-	 margin-top:20px;
+.navbar-default .nav {
+padding: 20px 0;
 }
-
-.img-responsive {
-    margin: 0 auto;
+.navbar-default .navbar-brand {
+padding: 0 15px;
 }
-
-#title{
-	margin-bottom: 20px;
+@media(min-width:768px) {
+body {
+padding-top: 20px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
 }
-
-h2{
-	margin-bottom:30px;
+.navbar-default .navbar-brand {
+padding: 12px 10px;
+margin-right:10px;
 }
-
-p{
-	margin-bottom: 30px;
-}
-
-a:hover{
-	text-decoration:none;
-}
-
-.footer-text{
-	font-size:12px;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 60px;
 }

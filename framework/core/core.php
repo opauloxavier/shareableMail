@@ -1,6 +1,16 @@
 <?php
+	date_default_timezone_set('Brazil/East');
 
-	if($_SERVER['SERVER_NAME']=='localhost'){
+	define('ST_PATH','framework/assets/');
+	define('CONF_PATH','config/');
+	define('PAGES_URL','pages/');
+
+	define('SITE_TITLE','Essencia do Prazer');
+	define('SITE_URL','dev.pauloxavier.com/shareMail/');
+	define("THEME_URL","framework/template/default/");
+
+
+	if($_SERVER['SERVER_NAME']=='dev.pauloxavier.com'){
 		define("url","http://localhost/coming");
 		define("db_table", "users");
 		define("db_user","localhost");
