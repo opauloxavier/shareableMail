@@ -1,0 +1,6 @@
+ErrorDocument 404 pages/404.php
+
+RewriteEngine On # Turn on the rewriting engine 
+
+RewriteRule ^([0-9a-zA-Z-_]{1,100})/?$ index.php?to=$1 [L]
+RewriteRule ^home/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&item=$1 [L]
