@@ -14,10 +14,14 @@
       <div class="container">
       	<div class="col-md-12">
       	<div class="col-md-2">
-      		<div class="col-md-1 social" style="background-color: #7f4098; font-size:20px;">F</div>
+      		<div class="col-md-1">
+      			<a href="<?php echo SOCIAL_FB;?>" class="img-responsive">
+                	
+                </a>
+      		</div>
       		<div class="col-md-1 social" style="background-color: #7f4098; font-size:20px;">E</div>
       	</div>
-        <div class="col-md-8 pull-right">
+        <div class="col-md-offset-2 col-md-8">
         <form class="form-inline">
 		  <div class="form-group">
 		    <label class="control-label" for="exampleInputEmail3">E-mail</label>

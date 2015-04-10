@@ -7,8 +7,9 @@
 
 	define('SITE_TITLE','Essencia do Prazer');
 	define('SITE_URL','http://essenciadoprazer.com.br');
-	define("THEME_URL","framework/template/default/");
+	define('THEME_URL','framework/template/default/');
 
+	define('SOCIAL_FB','https://www.facebook.com/essenciadoprazer1?fref=ts');
 
 	if($_SERVER['SERVER_NAME']=='dev.pauloxavier.com'){
 		define("url","http://localhost/coming");

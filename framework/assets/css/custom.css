@@ -9,18 +9,22 @@
 
 .social{
 	background-color: #7f4098; 
-	font-size:20px;
+	height:30px;
 	margin-right:1px;
 }
 
 .temp-featured{
-	height:600px;
-	background-color: #ffffff;
-}
+  margin-top:50px;
+	height:850px;
+	background: url('../img/featured.png') no-repeat center center;
+  background-color:black;
+  }
 
 .temp-coelho{
-	height:350px;
-	background-color: yellow;
+	height:450px;
+  margin-bottom: 10px;
+	background: url('../img/rabbit.png') no-repeat top right;
+  background-position: 1100px -50px;
 }
 
 .rosa{
