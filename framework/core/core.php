@@ -6,7 +6,7 @@
 	define('PAGES_URL','pages/');
 
 	define('SITE_TITLE','Essencia do Prazer');
-	define('SITE_URL','dev.pauloxavier.com/shareMail/');
+	define('SITE_URL','http://essenciadoprazer.com.br');
 	define("THEME_URL","framework/template/default/");
 
 

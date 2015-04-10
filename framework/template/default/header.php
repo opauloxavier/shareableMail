@@ -3,34 +3,34 @@
 <head> 
 	<title><?php echo SITE_TITLE; ?></title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?=ST_PATH?>css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?=ST_PATH?>css/custom.css" />
 	<script type="text/javascript" src="<?=ST_PATH?>js/bootstrap.js"></script>
 	<link rel="shortcut icon" href="http://pauloxavier.com/wp-content/uploads/2015/01/favicon.png" type="image/x-icon">
 </head>
 <body>
-	<div id="wrapper" class="container">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<div id="navbar" class="navbar-header">
-				<button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
-				    <span class="sr-only">Toggle navigation</span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				</button>
-					<a class="navbar-brand" href="<?php echo SITE_URL;?>home"> <img src='http://pauloxavier.com/wp-content/uploads/2015/01/logo-site.png' alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li ><a href="<?php echo SITE_URL;?>home">Home</a></li>
-						<li ><a href="<?php echo SITE_URL;?>about">About</a></li>
-						<li ><a href="<?php echo SITE_URL;?>contact">Contact</a></li>
-					</ul>
-				</div>	
-			
-			</div>	
-		</nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+      	<div class="col-md-12">
+      	<div class="col-md-2">
+      		<div class="col-md-1 social" style="background-color: #7f4098; font-size:20px;">F</div>
+      		<div class="col-md-1 social" style="background-color: #7f4098; font-size:20px;">E</div>
+      	</div>
+        <div class="col-md-8 pull-right">
+        <form class="form-inline">
+		  <div class="form-group">
+		    <label class="control-label" for="exampleInputEmail3">E-mail</label>
+		    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Digite seu email">
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label" for="exampleInputPassword3">Senha</label>
+		    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Digite sua senha">
+		  </div>
+		  <button type="submit" class="btn btn-default">Entrar</button>
+		</form>
+		</div>
 
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

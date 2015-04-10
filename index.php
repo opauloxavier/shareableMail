@@ -10,19 +10,19 @@ else
 
 echo "views = ". $_SESSION['views']; */
 	//echo $_GET['to'];
-	
-$id = $_GET['id'];
-	
-	/*if isset($_GET['to']){
-		echo "OK";
-	}
 
 	include_once THEME_URL."header.php";
 
-	if($_GET['to']=='home'){
-		include_once PAGES_URL."table.php";
+	include_once PAGES_URL."featured.php";
+
+	if( $_GET['to']=='home' or $_GET['to']==''){
+		include_once PAGES_URL."cadastro.php";
+	}
+
+	else{
+		include_once PAGES_URL."404.php";
 	}
 
 	include_once THEME_URL."footer.php";
-*/
+
 ?>
