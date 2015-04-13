@@ -11,22 +11,22 @@
 
 	define('SOCIAL_FB','https://www.facebook.com/essenciadoprazer1?fref=ts');
 
-	if($_SERVER['SERVER_NAME']=='dev.pauloxavier.com'){
+	if($_SERVER['SERVER_NAME'] == 'dev.pauloxavier.com'){
 		define("url","http://localhost/coming");
-		define("db_table", "users");
+		define("db_table", "px_user");
 		define("db_user","localhost");
-		define("db_name","newsletter");
+		define("db_name","sharemail");
 		define("db_login","root");
 		define("db_password","");
 	}
 
 
 	else{
-		define("url","http://www.mimelo.com.br");
-		define("db_table", "users");
-		define("db_user","localhost");
-		define("db_name","newsletter");
-		define("db_login","root");
-		define("db_password","");
+		define("url","http://www.essenciadoprazer.com.br");
+		define("db_table", "px_user");
+		define("db_user","mysql");
+		define("db_name","u527900266_share");
+		define("db_login","u527900266_admin");
+		define("db_password","over5574");
 	}
 ?>

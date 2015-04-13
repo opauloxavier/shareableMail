@@ -1,27 +1,53 @@
-<?php
+<?php if( !isset($_SESSION) ){ session_start(); }
+	
 	$theme_Default=1;
-	//session_start();  
-	require_once 'framework/core/core.php';
+	$status_page=0;
+	
+	if(isset($_SESSION["nome"])){
+		$_SESSION['logado'] = true;
+	}
 
-/*if(isset($_SESSION['views']))
-    $_SESSION['views'] = $_SESSION['views']+ 1;
-else
-    $_SESSION['views'] = 1;
+	else{
+		$_SESSION['logado'] = false;
+	}
 
-echo "views = ". $_SESSION['views']; */
-	//echo $_GET['to'];
+	if (isset($_SESSION['logado'])){
+	  if ($_SESSION['logado'] != NULL){                   
+	  	}
+	}
+
+	require_once('framework/core/functions.php');
+
+	if (isset($_POST['submitLogin']) and (autentica($_POST['emailLogin'],$_POST['passwordLogin'])!=false)){
+	
+		entrarSistema($_POST['emailLogin'],$_POST['passwordLogin']);
+	
+	}
+
+if(isset($_POST['submitCadastro'])){
+	
+	if(criaCadastro($_POST['nomeCadastro'],$_POST['emailCadastro'],$_POST['passwordCadastro']))
+		entrarSistema($_POST['emailCadastro'],$_POST['passwordCadastro']);
+}
 
 	include_once THEME_URL."header.php";
 
 	include_once PAGES_URL."featured.php";
 
-	if( $_GET['to']=='home' or $_GET['to']==''){
+	if(isset($_GET['to'])){
+		if($_GET['to']=='home'){
+			include_once PAGES_URL."cadastro.php";
+		}
+		else{
+			include_once PAGES_URL."404.php";
+		}
+
+	}
+	
+	else{
 		include_once PAGES_URL."cadastro.php";
 	}
 
-	else{
-		include_once PAGES_URL."404.php";
-	}
 
 	include_once THEME_URL."footer.php";
 

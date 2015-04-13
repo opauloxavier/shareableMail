@@ -1,6 +1,6 @@
 <?php
 	
-	require_once("core/core.php");
+	require_once("framework/core/core.php");
 
 
 	function check_double($email) {
@@ -9,7 +9,7 @@
 
 		$table = db_table;
 
-		$result = mysqli_query($mysqli,"SELECT * FROM users WHERE email = '$email'");
+		$result = mysqli_query($mysqli,"SELECT * FROM px_user WHERE email = '$email'");
 
 		$num = mysqli_num_rows($result);
 
@@ -36,5 +36,131 @@
 		}
 
 		return $mysqli;
+	}
+
+	function autentica($login,$senha){
+
+		$mysqli = connect_db();
+
+		$result = mysqli_query($mysqli,"SELECT * FROM px_user WHERE email = '$login' AND password='$senha' ");
+
+		//echo mysqli_num_rows($result);
+		if(mysqli_num_rows($result)>0){
+			$nome = mysqli_query($mysqli,"SELECT nome FROM px_user WHERE email = '$login'");
+			$row = mysqli_fetch_array($nome);
+
+			return $row['nome'];
+		}
+
+		else
+			return false;
+
+		header('Location: home');
+	}
+
+	function criaCadastro($nomeCadastro,$emailCadastro,$passwordCadastro){
+		$mysqli = connect_db();
+		
+		if(check_double($emailCadastro)==1){
+			$result = mysqli_query($mysqli,"INSERT INTO px_user (email, nome, password) VALUES ('$emailCadastro','$nomeCadastro', '$passwordCadastro')");	
+			
+			return true;
+		}
+		
+		else{
+			return false;
+		}
+	}
+
+	function entrarSistema($email,$senha){
+		if(isset($email) and (autentica($email,$senha)!=false)){
+
+		$db = connect_db();
+
+		$_SESSION['nome'] = autentica($email,$senha);
+		$_SESSION['email'] = $email;
+		$_SESSION['password'] = $senha;
+		$_SESSION['logado'] = true;
+		
+		}
+
+	}
+
+	function headerLogin($logado){
+
+
+	if($logado){
+				echo 
+
+				'<div class="col-md-4 pull-right">
+				Bem vindo, <span style="color:#7f4098">'.$_SESSION["nome"].'</span>.'.'<div class="col-md-2 pull-right text-center" style="color:#C21952;"><a style="color:#C21952;" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"> Sair</span></a>
+				</div>
+				</div>';
+		}
+
+	else{
+			echo'	
+		     <form class="form-inline" method="POST" action="home">
+				  <div class="form-group">
+				    <label class="control-label" for="exampleInputEmail3">E-mail</label>
+				    <input type="email" class="form-control" id="emailLogin" name="emailLogin" required="true" placeholder="Digite seu email">
+				  </div>
+				  <div class="form-group">
+				    <label class="control-label" for="exampleInputPassword3">Senha</label>
+				    <input type="password" class="form-control" id="passwordLogin" name="passwordLogin" required="true" placeholder="Digite sua senha">
+				  </div>
+				  <button type="submit" name="submitLogin" class="btn btn-default">Entrar</button>
+				</form>';
+	}	
+	}
+
+function areaCadastro($logado){
+
+	if($logado){
+				echo '<div class="col-md-12 bordaroxa">
+				<div class="col-md-12">
+				<div class="col-md-4 col-md-offset-3">
+					<h3>Você está <span class="rosa">logado!</span></h3>
+				</div>';
+		}
+
+	else{
+			echo'	
+				<div class="col-md-12 bordaroxa temp-coelho img-responsive">
+				<div class="col-md-12">
+				<div class="col-md-4 col-md-offset-3">
+					<h3>Cadastre-se,indique seus amigos e concorra a um <span class="rosa">Rabbit!</span></h3>
+				</div>
+
+				<div class="col-md-12">
+					<form class="form-horizontal" method="POST" action="index.php" id="formCadastro" name="formCadastro">
+					  <div class="form-group">
+					    <div class="col-md-4 col-md-offset-3">
+					      <input type="text" class="form-control" id="nome" name="nomeCadastro" placeholder="Nome" required="true">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <div class="col-md-4 col-md-offset-3">
+					      <input type="email" class="form-control" id="email" name="emailCadastro" placeholder="Email" required="true">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-md-4 col-md-offset-3">
+					      <input type="password" class="form-control" id="inputPassword3" name="passwordCadastro" placeholder="Senha" required="true">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-md-4 col-md-offset-3">
+					      <button type="submit" name="submitCadastro" class="btn btn-lg btn-custom btn-block">CADASTRAR!</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+				</div>
+				</div>
+			';
+		    
+	}	
 	}
 ?>

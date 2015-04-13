@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=ST_PATH?>css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?=ST_PATH?>css/custom.css" />
 	<script type="text/javascript" src="<?=ST_PATH?>js/bootstrap.js"></script>
-	<link rel="shortcut icon" href="http://pauloxavier.com/wp-content/uploads/2015/01/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="framework/assets/img/favicon.png" type="image/x-icon">
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -22,19 +22,8 @@
       		<div class="col-md-1 social" style="background-color: #7f4098; font-size:20px;">E</div>
       	</div>
         <div class="col-md-offset-2 col-md-8">
-        <form class="form-inline">
-		  <div class="form-group">
-		    <label class="control-label" for="exampleInputEmail3">E-mail</label>
-		    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Digite seu email">
-		  </div>
-		  <div class="form-group">
-		    <label class="control-label" for="exampleInputPassword3">Senha</label>
-		    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Digite sua senha">
-		  </div>
-		  <button type="submit" class="btn btn-default">Entrar</button>
-		</form>
+        	<?php headerLogin($_SESSION["logado"]);?>
 		</div>
-
         </div><!--/.nav-collapse -->
       </div>
     </nav>

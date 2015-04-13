@@ -5,3 +5,4 @@ RewriteBase /shareMail/
 RewriteRule ^user/([a-z]+)/?$ user.php?id=$1
 RewriteRule  ^([0-9a-zA-Z-_]{1,100})/?$ index.php?to=$1 [L]
 RewriteRule  ^home/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&item=$1 [L]
+RewriteRule  ^home/([0-9a-zA-Z-_]{1,100})/[0-9a-zA-Z-_]{1,100}/?$ index.php?to=home&email=$1[L]

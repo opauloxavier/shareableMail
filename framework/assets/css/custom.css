@@ -7,6 +7,15 @@
 
 }
 
+.logout{
+   cursor: pointer; 
+   cursor: hand;
+   background-color:#7f4098;  
+   display:block;
+   text-align: center;
+   height:30px;
+}
+
 .social{
 	background-color: #7f4098; 
 	height:30px;
