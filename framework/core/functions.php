@@ -183,15 +183,18 @@ function criaReferral($emailReferral){
 
 			$result = mysqli_query($mysqli,"INSERT INTO px_referral (`Referral_ID`, `RefereeID`, `Referred_Email`, `Status`) VALUES (NULL, '$id', '$emailReferral', '0')");	
 
+					echo 'ok';
 					$status_page=4;
 		}
 
 		else{
 			$status_page=5;
+			echo 'ja criado para esse id';
 		}
 	}
 
 	else {
+		echo 'email ja cadastrado';
 		$status_page=6;
 	}
 }

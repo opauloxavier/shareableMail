@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=ST_PATH?>css/custom.css" />
 	<script type="text/javascript" src="<?=ST_PATH?>js/bootstrap.js"></script>
 	<link rel="shortcut icon" href="framework/assets/img/favicon.png" type="image/x-icon">
+
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">

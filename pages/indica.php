@@ -1,5 +1,12 @@
 <?php
 	$numeroIndicados = check_Referral_True($_SESSION['ID']);
+
+	if (isset($_POST['submitIndica'])){
+
+		criaReferral($_POST['emailIndica'],$_SESSION['ID']);
+	}
+
+	//echo $status_page;
 ?>
 
 <div style="height:400px;" class="col-md-12 bordaroxa">
@@ -14,7 +21,7 @@
 			<form class="form-horizontal" method="POST" action="index.php" id="formIndica" name="formIndica">
 				<div class="form-group">
 					<div class="col-md-8">
-					    <input type="email" class="form-control" id="emailCadastro" name="emailCadastro" placeholder=" Digite o Email do seu amigo" required="true">
+					    <input type="email" class="form-control" id="emailIndica" name="emailIndica" placeholder=" Digite o Email do seu amigo" required="true">
 					</div>	
 					<div class="col-md-2">
 					      <button type="submit" name="submitIndica" class="btn btn-default btn-block btn-custom">Indicar Amigo</button>

@@ -1,5 +1,6 @@
 <?php
 	date_default_timezone_set('Brazil/East');
+	$root = $_SERVER['DOCUMENT_ROOT'];
 
 	define('ST_PATH','framework/assets/');
 	define('CONF_PATH','config/');
