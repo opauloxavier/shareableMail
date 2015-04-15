@@ -38,6 +38,9 @@ if(isset($_POST['submitCadastro'])){
 		if($_GET['to']=='home'){
 			include_once PAGES_URL."cadastro.php";
 		}
+		elseif($_GET['to']=='teste'){
+			include_once PAGES_URL."functionTest.php";
+		}
 		else{
 			include_once PAGES_URL."404.php";
 		}

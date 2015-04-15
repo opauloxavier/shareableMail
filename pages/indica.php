@@ -1,3 +1,7 @@
+<?php
+	$numeroIndicados = check_Referral_True($_SESSION['ID']);
+?>
+
 <div style="height:400px;" class="col-md-12 bordaroxa">
 	<div class="col-md-12">
 		<div class="col-md-6 col-md-offset-3 text-center">
@@ -17,6 +21,11 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h5> Amigos Cadastrados:<span class="rosa"> <?php echo $numeroIndicados?></span></h5>
+			</div>
 		</div>
 	</div>
 </div>
