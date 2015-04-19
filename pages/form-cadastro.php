@@ -5,7 +5,7 @@
 				</div>
 
 				<div class="col-md-12">
-					<form class="form-horizontal" method="POST" action="index.php" id="formCadastro" name="formCadastro">
+					<form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>index.php" id="formCadastro" name="formCadastro">
 					  <div class="form-group">
 					    <div class="col-md-4 col-md-offset-3">
 					      <input type="text" class="form-control" id="nome" name="nomeCadastro" placeholder="Nome" required="true">

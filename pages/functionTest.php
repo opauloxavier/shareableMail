@@ -1,3 +1,3 @@
 <?php
-	criaReferral('testedojose@gmail.com');
+	setCodeAlerta(2);
 ?>

@@ -3,10 +3,10 @@
 
 	if (isset($_POST['submitIndica'])){
 
-		criaReferral($_POST['emailIndica'],$_SESSION['ID']);
+		criaReferral($_POST['emailIndica']);
 	}
 
-	//echo $status_page;
+	//echo $GLOBALS["status"];
 ?>
 
 <div style="height:400px;" class="col-md-12 bordaroxa">
@@ -17,8 +17,12 @@
 		<div class="col-md-6 col-md-offset-3 text-center">
 			<h4> Agora, que tal <span class="rosa">contar para seus amigos?</span> Para cada amigo seu indicado, suas chances de ganhar o sorteio <span class="rosa">aumentam!</span></h4>
 		</div>
+
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<h4> Seu Link de Referência é: <span class="rosa"><?php echo $_SERVER['HTTP_HOST'].'/ref/'.$_SESSION['ID'].'/';?></span>. Para cada amigo seu indicado, suas chances de ganhar o sorteio <span class="rosa">aumentam!</span></h4>
+		</div>
 		<div class="col-md-8 col-md-offset-3 text-center">
-			<form class="form-horizontal" method="POST" action="index.php" id="formIndica" name="formIndica">
+			<form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>index.php" id="formIndica" name="formIndica">
 				<div class="form-group">
 					<div class="col-md-8">
 					    <input type="email" class="form-control" id="emailIndica" name="emailIndica" placeholder=" Digite o Email do seu amigo" required="true">

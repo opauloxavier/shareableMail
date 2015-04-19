@@ -1,4 +1,4 @@
- <form class="form-inline" method="POST" action="home">
+ <form class="form-inline" method="POST" action="<?php echo BASE_URL; ?>home">
 				  <div class="form-group">
 				    <label class="control-label" for="exampleInputEmail3">E-mail</label>
 				    <input type="email" class="form-control" id="emailLogin" name="emailLogin" required="true" placeholder="Digite seu email">

@@ -1,6 +1,13 @@
 <?php
-	
 	require_once("framework/core/core.php");
+
+	function setCodeAlerta($numeroCodigo){
+		if($numeroCodigo==4)
+			header("location:sucesso/".$numeroCodigo);
+		else
+			header("location:error/".$numeroCodigo);
+		//$_SESSION['status'] = $numeroCodigo;
+	}
 
 function connect_db(){
 
@@ -70,7 +77,6 @@ function connect_db(){
 
 	}
 
-	
 
 	function autentica($login,$senha){
 
@@ -79,27 +85,32 @@ function connect_db(){
 		$result = mysqli_query($mysqli,"SELECT * FROM px_user WHERE email = '$login' AND password='$senha' ");
 
 		//echo mysqli_num_rows($result);
-		if(mysqli_num_rows($result)>0){
+		if(mysqli_num_rows($result)!=false){
 			$nome = mysqli_query($mysqli,"SELECT nome FROM px_user WHERE email = '$login'");
 			$row = mysqli_fetch_array($nome);
 
 			return $row['nome'];
 		}
 
-		else
+		else{
+			setCodeAlerta(2);
 			return false;
+		}
 
-		header('Location: home');
+		//header('Location: home');
 	}
 
-	function criaCadastro($nomeCadastro,$emailCadastro,$passwordCadastro,$refereeID=false){
+	function criaCadastro($nomeCadastro,$emailCadastro,$passwordCadastro,$refereeID=0){
 		$mysqli = connect_db();
-		
+
 		if(check_double($emailCadastro)==1){
 
-			if ($refereeID!=false){
+			if ($refereeID!=0){
 
 				$result = mysqli_query($mysqli,"UPDATE px_referral SET `Status` = '1' WHERE `Referred_email`='$emailCadastro' and `RefereeID`='$refereeID'");
+
+				if (mysqli_num_rows($result)==false)
+					criaReferral($emailCadastro,1);
 				//;
 			}
 
@@ -110,9 +121,9 @@ function connect_db(){
 			}
 		
 		else{
-			
-			$status_page = 6;
-			
+		
+			setCodeAlerta(6);
+
 			return false;
 		}
 	}
@@ -135,12 +146,14 @@ function connect_db(){
 		}
 
 		else{
+
 			if(check_double($email)==1){
-				$status_page=1;
+				echo "entrei aqui";
+				setCodeAlerta(1);
 			}
 
 			else {
-				$status_page=2;
+				setCodeAlerta(2);
 			}
 		}
 
@@ -171,33 +184,51 @@ function areaCadastro($logado){
 	
 	}
 
-function criaReferral($emailReferral){
+function criaReferral($emailReferral,$status=0){
 
 	$mysqli = connect_db();
 
 	if (check_double($emailReferral)==1) {
 
-		$id=$_SESSION['ID'];
+		if(isset($_SESSION['ref']))
+			$id=$_SESSION['ref'];	
+
+		else 
+			$id=$_SESSION['ID'];
 		
 		if(check_double_referral($emailReferral,$id)==1){
 
-			$result = mysqli_query($mysqli,"INSERT INTO px_referral (`Referral_ID`, `RefereeID`, `Referred_Email`, `Status`) VALUES (NULL, '$id', '$emailReferral', '0')");	
+			$result = mysqli_query($mysqli,"INSERT INTO px_referral (`Referral_ID`, `RefereeID`, `Referred_Email`, `Status`) VALUES (NULL, '$id', '$emailReferral', '$status')");	
 
-					echo 'ok';
-					$status_page=4;
+				if(!isset($_GET['ref']))
+					setCodeAlerta(4);
 		}
 
 		else{
-			$status_page=5;
-			echo 'ja criado para esse id';
+			setCodeAlerta(5);
 		}
 	}
 
 	else {
-		echo 'email ja cadastrado';
-		$status_page=6;
+		setCodeAlerta(6);
 	}
 }
+
+	function displayAlerta($alertClass,$textoAlerta,$codAlerta){
+		if($codAlerta!=0)
+			echo '
+				<div class="row">
+					<div class="col-md-offset-6 col-md-2 text-center">
+						<div class="alert '.$alertClass.' alert-dismissable alertas">
+	   						<button type="button" name="buttonAlert" class="close" data-dismiss="alert" aria-hidden="true">&times; </button>
+	   						'.$textoAlerta.'
+						</div>
+					</div>
+				</div>
+			';
+
+			//unset($_SESSION['status']);
+	}
 
 
 

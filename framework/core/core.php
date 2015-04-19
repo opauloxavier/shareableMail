@@ -1,8 +1,9 @@
 <?php
 	date_default_timezone_set('Brazil/East');
-	$root = $_SERVER['DOCUMENT_ROOT'];
+	define('BASE_URL','http://dev.pauloxavier.com/shareMail/');
+	$root = 'D:/GitHub/ShareableMail';
 
-	define('ST_PATH','framework/assets/');
+	define('ST_PATH','http://'.$_SERVER['HTTP_HOST'].'/shareMail/framework/assets/');
 	define('CONF_PATH','config/');
 	define('PAGES_URL','pages/');
 
