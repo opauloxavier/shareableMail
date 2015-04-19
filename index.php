@@ -46,6 +46,11 @@ if(isset($_POST['submitCadastro'])){
 
 		}
 	}
+	require_once 'vendor/autoload.php';
+
+	require_once'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+
+	require_once 'framework/sdk/analyticstracking.php';
 
 	include_once THEME_URL."header.php";
 
@@ -63,7 +68,7 @@ if(isset($_POST['submitCadastro'])){
 		}
 
 		elseif($_GET['to']=='teste'){
-			include_once PAGES_URL."functionTest.php";
+			include_once PAGES_URL."mail.php";
 		}
 
 		elseif($_GET['to']=='error'){

@@ -11,3 +11,4 @@ RewriteRule  ^ref/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&ref=$1 [L]
 RewriteRule  ^home/ref/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&ref=$1 [L]
 RewriteRule  ^error/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&error=$1 [L]
 RewriteRule  ^sucesso/([0-9a-zA-Z-_]{1,100})/?$ index.php?to=home&error=$1 [L]
+

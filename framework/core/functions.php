@@ -200,6 +200,8 @@ function criaReferral($emailReferral,$status=0){
 
 			$result = mysqli_query($mysqli,"INSERT INTO px_referral (`Referral_ID`, `RefereeID`, `Referred_Email`, `Status`) VALUES (NULL, '$id', '$emailReferral', '$status')");	
 
+			enviaMail($emailReferral,'Seu amigo '.$_SESSION['nome'].' indicou você!',$_SESSION['ID'],$_SESSION['nome']);
+
 				if(!isset($_GET['ref']))
 					setCodeAlerta(4);
 		}
@@ -230,6 +232,36 @@ function criaReferral($emailReferral,$status=0){
 			//unset($_SESSION['status']);
 	}
 
+	function enviaMail($to,$subject,$refereeID,$refereeName){
 
+			$message = file_get_contents('framework/template/email/sorteio.html');
+
+			// Replace the % with the actual information
+			$message = str_replace('%referee_id%', $refereeID, $message);
+			$message = str_replace('%referee_name%', $refereeName, $message);
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();
+			$mail->CharSet = 'UTF-8';
+			$mail->Host = 'smtp.mandrillapp.com';
+			$mail->SMTPAuth= true;
+			$mail->Username= MAIL_USERNAME;
+			$mail->Password = MAIL_PASSWORD;
+			$mail->SMTPSecure= 'tls';
+			$mail->Port = 587;
+			$mail->From = MAIL_FROM;
+			$mail->FromName = MAIL_FROM_NAME;
+			$mail->addAddress($to);
+			$mail->Subject = $subject;
+			$mail->MsgHTML($message);
+			//$mail->AltBody(strip_tags($message));
+
+			if(!$mail->send()) {
+			    echo 'Message could not be sent.';
+			    echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {
+			    echo 'Message has been sent';
+			}
+	}
 
 ?>

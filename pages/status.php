@@ -14,7 +14,7 @@
 				break;
 			case 4:
 				$alertClass="alert-success";
-				$textoAlerta="Referral Criado com sucesso!";
+				$textoAlerta="Referral/Email criado com sucesso!";
 				break;
 			case 5:
 				$alertClass="alert-danger";
