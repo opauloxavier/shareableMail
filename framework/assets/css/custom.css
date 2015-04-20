@@ -6,7 +6,9 @@
 	border-color:#252126;
 
 }
-
+#u_0_2{
+  color:white;
+}
 .logout{
    cursor: pointer; 
    cursor: hand;
@@ -43,6 +45,12 @@
 	color:#d91c5c;
 }
 
+.lilas{
+  color:#7f4098;
+}
+
+
+  
 .bordaroxa{
 	border-top: 1px solid #4c265b;
 }

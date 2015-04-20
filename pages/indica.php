@@ -9,17 +9,13 @@
 	//echo $GLOBALS["status"];
 ?>
 
-<div style="height:400px;" class="col-md-12 bordaroxa">
+<div style="height:550px;" class="col-md-12 bordaroxa">
 	<div class="col-md-12">
 		<div class="col-md-6 col-md-offset-3 text-center">
-			<h3> PARABÉNS! Você já possui <span class="rosa">10% de desconto</span> em sua primeira compra na loja Essência do Prazer e participará do sorteio do <span class="rosa">Rabbit!</span></h3>
+			<h3> PARABÉNS! Você já está participando no sorteio do <span class="rosa">Rabbit!</span></h3>
 		</div>
-		<div class="col-md-6 col-md-offset-3 text-center">
-			<h4> Agora, que tal <span class="rosa">contar para seus amigos?</span> Para cada amigo seu indicado, suas chances de ganhar o sorteio <span class="rosa">aumentam!</span></h4>
-		</div>
-
-		<div class="col-md-6 col-md-offset-3 text-center">
-			<h4> Seu Link de Referência é: <span class="rosa"><?php echo $_SERVER['HTTP_HOST'].'/ref/'.$_SESSION['ID'].'/';?></span>. Para cada amigo seu indicado, suas chances de ganhar o sorteio <span class="rosa">aumentam!</span></h4>
+		<div class="col-md-6 col-md-offset-3 text-center" style="margin-top:10px; margin-bottom:20px;">
+			<h4><span class="rosa" style="font-weight: 100;"> Agora, que tal contar para seus amigos? Para cada amigo seu indicado, suas chances de ganhar no sorteio aumentam!</span></h4>
 		</div>
 		<div class="col-md-8 col-md-offset-3 text-center">
 			<form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>index.php" id="formIndica" name="formIndica">
@@ -33,10 +29,25 @@
 				</div>
 			</form>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-bottom:40px;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h5> Amigos Cadastrados:<span class="rosa"> <?php echo $numeroIndicados?></span></h5>
+				<h4> Amigos Cadastrados:<span class="rosa"><b> <?php echo $numeroIndicados?></b></span></h4>
 			</div>
 		</div>
+
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<h5> Caso deseje, você pode também utilizar o link abaixo para divulgar  aos seus amigos:</h5>
+		</div>
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<h4><span style="font-weight:bold;" class="lilas"><?php echo $_SERVER['HTTP_HOST'].'/ref/'.$_SESSION['ID'].'/';?></span></h4>
+		</div>
+
+
+		<div class="row">
+			<div style="margin-top:50px;" class="col-md-offset-3 col-md-6 text-center">
+				<div class="fb-like" data-href="https://www.facebook.com/essenciadoprazer1" data-layout="standard" data-action="like" data-show-faces="true" data-colorscheme="dark" data-share="false"></div>
+			</div>
+		</div>
+
 	</div>
 </div>

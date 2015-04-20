@@ -52,6 +52,8 @@ if(isset($_POST['submitCadastro'])){
 
 	require_once 'framework/sdk/analyticstracking.php';
 
+	require_once 'framework/sdk/facebook.php';
+
 	include_once THEME_URL."header.php";
 
 	include_once PAGES_URL."featured.php";
