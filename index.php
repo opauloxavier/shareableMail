@@ -76,7 +76,7 @@ if(isset($_POST['submitCadastro'])){
 		}
 
 		else{
-			include_once PAGES_URL."404.php";
+			header("location:".BASE_URL);
 		}
 
 	}

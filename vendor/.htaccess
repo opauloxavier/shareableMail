@@ -1,0 +1,5 @@
+RewriteEngine On # Turn on the rewriting engine 
+
+#ErrorDocument 404 "pages/404.php"
+
+Deny from  all
