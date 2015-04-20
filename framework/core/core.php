@@ -11,7 +11,7 @@
 	//mail data
 	define('MAIL_USERNAME','lojaessenciadoprazer@gmail.com');
 	define('MAIL_PASSWORD','0hz7CdWeNOJ5tADZ15Ww9w');
-	define('MAIL_FROM','lojaessenciadoprazer@gmail.com');
+	define('MAIL_FROM','noreply@essenciadoprazer.com.br');
 	define('MAIL_FROM_NAME','Loja Essência do Prazer');
 
 

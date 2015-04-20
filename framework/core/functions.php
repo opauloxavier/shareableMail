@@ -256,12 +256,12 @@ function criaReferral($emailReferral,$status=0){
 			$mail->MsgHTML($message);
 			//$mail->AltBody(strip_tags($message));
 
-			/*if(!$mail->send()) {
+			if(!$mail->send()) {
 			    echo 'Message could not be sent.';
 			    echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 			    echo 'Message has been sent';
-			}*/
+			}
 	}
 
 ?>
